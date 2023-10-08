@@ -35,24 +35,24 @@ const PostsWidget = ({ userId, isProfile = false }) => {
     } else {
       getPosts();
     }
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return(
+  return (
     <>
-    {posts.map(
+      {posts.map(
         ({
-            _id,
-            userId,
-            firstName,
-            lastName,
-            description,
-            location,
-            picturePath,
-            userPicturePath,
-            likes,
-            comments,
+          _id,
+          userId,
+          firstName,
+          lastName,
+          description,
+          location,
+          picturePath,
+          userPicturePath,
+          likes,
+          comments,
         }) => (
-            <PostWidget
+          <PostWidget
             key={_id}
             postId={_id}
             postUserId={userId}
@@ -63,10 +63,11 @@ const PostsWidget = ({ userId, isProfile = false }) => {
             userPicturePath={userPicturePath}
             likes={likes}
             comments={comments}
-            />
+          />
         )
-    )}
+      )}
     </>
-  )
+  );
 };
+
 export default PostsWidget;
